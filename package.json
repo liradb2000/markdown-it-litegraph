@@ -1,0 +1,39 @@
+{
+  "name": "@liradb2000/markdown-it-litegraph",
+  "version": "0.1.0",
+  "description": "litegraph docs plugin for Markdown-IT.",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "rollup -c"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liradb2000/markdown-it-litegraph.git"
+  },
+  "keywords": [
+    "markdown-it-plugin",
+    "markdown-it",
+    "markdown",
+    "litegraph"
+  ],
+  "author": "DB KIM <https://github.com/liradb2000>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/liradb2000/markdown-it-litegraph/issues"
+  },
+  "homepage": "https://github.com/liradb2000/markdown-it-litegraph#readme",
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "@rollup/plugin-babel": "^5.3.0",
+    "@rollup/plugin-commonjs": "^17.0.0",
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-node-resolve": "^11.0.1",
+    "eslint": "^7.26.0",
+    "eslint-config-prettier": "^7.1.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "prettier": "^2.2.1",
+    "rollup": "^2.35.1"
+  },
+  "dependencies": {}
+}
