@@ -1,0 +1,16 @@
+{
+    "extends": "standard",
+    "env": {
+        "browser": true
+    },
+    "rules": {
+        // Override our default settings just for this directory
+        "eqeqeq": "warn",
+        "indent": [
+            "warn",
+            4
+        ],
+        "camelcase": "off",
+        "space-before-function-paren": "off"
+    }
+}
