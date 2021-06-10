@@ -37,9 +37,58 @@ export default function drawNodeShape(
     area[3] = size[1] + title_height // h
 
     rootSVG.setAttribute('xmlns', 'http://www.w3.org/2000/svg')
-    rootSVG.setAttribute('viewBox', area.join(' '))
-    rootSVG.setAttribute('width', area[2])
-    rootSVG.setAttribute('height', area[3])
+    rootSVG.setAttribute(
+        'viewBox',
+        `${area[0] - 7.5} ${area[1] - 7.5} ${area[2] + 15} ${area[3] + 15}`
+    )
+    rootSVG.setAttribute('width', area[2] + 15)
+    rootSVG.setAttribute('height', area[3] + 15)
+
+    // Add backdrop shadow
+    const _filter = `%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cfilter%20id%3D%22f3%22%20x%3D%22-5%22%20y%3D%22-5%22%20width%3D%22${area[2]}%22%20height%3D%22${area[3]}%22%3E%3CfeOffset%20result%3D%22offOut%22%20in%3D%22SourceAlpha%22%20dx%3D%220%22%20dy%3D%220%22%3E%3C%2FfeOffset%3E%3CfeGaussianBlur%20result%3D%22blurOut%22%20in%3D%22offOut%22%20stdDeviation%3D%224%22%3E%3C%2FfeGaussianBlur%3E%3CfeBlend%20in%3D%22SourceGraphic%22%20in2%3D%22blurOut%22%20mode%3D%22normal%22%3E%3C%2FfeBlend%3E%3C%2Ffilter%3E%3C%2Fsvg%3E`
+    // const _defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs')
+    // const _filter = document.createElementNS(
+    //     'http://www.w3.org/2000/svg',
+    //     'filter'
+    // )
+    // const _feOffset = document.createElementNS(
+    //     'http://www.w3.org/2000/svg',
+    //     'feOffset'
+    // )
+    // const _feGaussianBlur = document.createElementNS(
+    //     'http://www.w3.org/2000/svg',
+    //     'feGaussianBlur'
+    // )
+    // const _feBlend = document.createElementNS(
+    //     'http://www.w3.org/2000/svg',
+    //     'feBlend'
+    // )
+    // _filter.setAttribute('id', 'f3')
+    // _filter.setAttribute('x', 0)
+    // _filter.setAttribute('y', 0)
+    // _filter.setAttribute('width', area[2])
+    // _filter.setAttribute('height', area[3])
+
+    // _feOffset.setAttribute('result', 'offOut')
+    // _feOffset.setAttribute('in', 'SourceAlpha')
+    // _feOffset.setAttribute('dx', 0)
+    // _feOffset.setAttribute('dy', 0)
+
+    // _feGaussianBlur.setAttribute('result', 'blurOut')
+    // _feGaussianBlur.setAttribute('in', 'offOut')
+    // _feGaussianBlur.setAttribute('stdDeviation', 5)
+
+    // _feBlend.setAttribute('in', 'SourceGraphic')
+    // _feBlend.setAttribute('in2', 'blurOut')
+    // _feBlend.setAttribute('mode', 'normal')
+
+    // _filter.appendChild(_feOffset)
+    // _filter.appendChild(_feGaussianBlur)
+    // _filter.appendChild(_feBlend)
+
+    // _defs.appendChild(_filter)
+
+    // rootSVG.appendChild(_defs)
 
     // const old_alpha = ctx.globalAlpha
 
@@ -53,6 +102,10 @@ export default function drawNodeShape(
         rectSvg.setAttribute('y', area[1])
         rectSvg.setAttribute('width', area[2])
         rectSvg.setAttribute('height', area[3])
+        rectSvg.setAttribute(
+            'filter',
+            `url(data:image/svg+xml;utf8,${_filter}#f3)`
+        )
         rectSvg.setAttribute('style', `stroke: ${fgcolor}; fill: ${bgcolor};`)
         rootSVG.appendChild(rectSvg)
         // ctx.fillRect(area[0], area[1], area[2], area[3])
@@ -73,6 +126,10 @@ export default function drawNodeShape(
             'ry',
             shape === LitegraphEnum.CARD_SHAPE ? 0 : round_radius
         )
+        rectSvg.setAttribute(
+            'filter',
+            `url(data:image/svg+xml;utf8,${_filter}#f3)`
+        )
         rectSvg.setAttribute('style', `stroke: ${fgcolor}; fill: ${bgcolor};`)
         rootSVG.appendChild(rectSvg)
         // ctx.roundRect(
@@ -91,6 +148,10 @@ export default function drawNodeShape(
         bodySVG.setAttribute('cx', size[0] * 0.5)
         bodySVG.setAttribute('cy', size[1] * 0.5)
         bodySVG.setAttribute('r', size[0] * 0.5)
+        bodySVG.setAttribute(
+            'filter',
+            `url(data:image/svg+xml;utf8,${_filter}#f3)`
+        )
         bodySVG.setAttribute('style', `stroke: ${fgcolor}; fill: ${bgcolor};`)
         rootSVG.appendChild(bodySVG)
 
